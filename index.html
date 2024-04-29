@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>binds</title>
+    <title>Pentamuira</title>
     <link rel="icon" type="x-icon" href="data/favicon.ico">
 
 
@@ -13,6 +13,7 @@
     <!-- Load the required dependencies: A-frame and AR.js -->
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+
 
 </head>
 
@@ -25,11 +26,20 @@
 
         <!-- Defines the barcode marker that we are going to use. We have just to specify its code, that in this case is 2 -->
         <!-- Repeating elements for each integer between 0 and 305 -->
-
-        <a-marker type="barcode" value="183">
-            <a-image position="0 0 0" rotation="-90 0 0" scale="10 10 10" src="assets/asset.jpeg"></a-image>
-        </a-marker>
-
+        <script>
+            for (let i = 0; i <= 305; i++) {
+                document.write(`
+                <a-marker type="barcode" value="${i}">
+                <a-image
+                    position="0 0 0"
+                    rotation="-90 0 0"
+                    scale="10 10 10"
+                    src="https://ik.imagekit.io/bsanivviz/Image_dataset/F_${i}.png"
+                ></a-image>
+                </a-marker>
+            `);
+            }
+        </script>
 
 
 
