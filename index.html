@@ -26,20 +26,11 @@
 
         <!-- Defines the barcode marker that we are going to use. We have just to specify its code, that in this case is 2 -->
         <!-- Repeating elements for each integer between 0 and 305 -->
-        <script>
-            for (let i = 0; i <= 305; i++) {
-                document.write(`
-                <a-marker type="barcode" value="${i}">
-                <a-image
-                    position="0 0 0"
-                    rotation="-90 0 0"
-                    scale="10 10 10"
-                    src="https://illustoon.com/photo/7251.png"
-                ></a-image>
-                </a-marker>
-            `);
-            }
-        </script>
+
+        <a-marker type="barcode" value="86">
+            <a-image position="0 0 0" rotation="-90 0 0" scale="10 10 10"
+                src="https://illustoon.com/photo/7251.png"></a-image>
+        </a-marker>
 
 
 
