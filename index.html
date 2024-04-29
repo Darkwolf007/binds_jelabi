@@ -1,30 +1,49 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
 
 <head>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script
-        src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
-    <script
-        src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+    <meta charset="UTF-8">
+
+    <title>Pentamuira</title>
+    <link rel="icon" type="x-icon" href="data/favicon.ico">
+
+
+    <!-- Initialize the viewport -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <!-- Load the required dependencies: A-frame and AR.js -->
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+
 </head>
 
-<body style="margin: 0; overflow: hidden;">
-    <a-scene vr-mode-ui="enabled: false;" loading-screen="enabled: true;"
-        arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 4x4_BCH_13_9_3;'
-        arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;" id="scene" embedded gesture-detector>
-        <a-marker type="barcode" value="183">
-            <a-image position="0 0 0" rotation="-90 0 0" scale="10 10 10" src="assets/asset.jpeg"></a-image>
-        </a-marker>
 
+
+<body style='margin : 0px; overflow: hidden;'>
+
+    <a-scene id="neighbours" embedded
+        arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 4x4_BCH_13_9_3;'>
+
+        <!-- Defines the barcode marker that we are going to use. We have just to specify its code, that in this case is 2 -->
+        <!-- Repeating elements for each integer between 0 and 305 -->
+        <script>
+            for (let i = 0; i <= 305; i++) {
+                document.write(`
+                <a-marker type="barcode" value="${i}">
+                <a-image
+                    position="0 0 0"
+                    rotation="-90 0 0"
+                    scale="10 10 10"
+                    src="https://assets.designhill.com/resize_img.php?atyp=st_page_file&pth=ft_bt_bgti_org||BT348268||big_gallery_with_ten_images_image1_img&flp=1612955718-11724743106023c046877d42-47844759.png"
+                ></a-image>
+                </a-marker>
+            `);
+            }
+        </script>
+
+
+
+        <!-- Define the camera of the scene -->
         <a-entity camera></a-entity>
     </a-scene>
+
 </body>
-
-</html>
-
-
-<!-- <a-marker type="barcode" value="183">
-    <a-image position="0 0 0" rotation="-90 0 0" scale="10 10 10" src="assets/asset.jpeg"></a-image>
-</a-marker> -->
